@@ -1,9 +1,11 @@
 import { useFinance } from "../context/FinanceContext";
+import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import FutureBarChart from "../components/FutureBarChart";
 
 export default function FuturePage() {
   const { analysis } = useFinance();
+  const navigate = useNavigate();
 
   // Safety check
   if (!analysis) {
@@ -45,18 +47,14 @@ export default function FuturePage() {
             </p>
 
             <div className="mt-4">
-              <p className="text-sm">
-                Savings after 3 months
-              </p>
+              <p className="text-sm">Savings after 3 months</p>
               <p className="text-xl font-bold text-gray-800">
                 ₹{futureSimulation.currentPath.savingsAfter3Months}
               </p>
             </div>
 
             <div className="mt-4">
-              <p className="text-sm">
-                Outstanding debt
-              </p>
+              <p className="text-sm">Outstanding debt</p>
               <p className="text-xl font-bold text-danger">
                 ₹{futureSimulation.currentPath.debtAfter3Months}
               </p>
@@ -74,18 +72,14 @@ export default function FuturePage() {
             </p>
 
             <div className="mt-4">
-              <p className="text-sm">
-                Savings after 3 months
-              </p>
+              <p className="text-sm">Savings after 3 months</p>
               <p className="text-xl font-bold text-secondary">
                 ₹{futureSimulation.optimizedPath.savingsAfter3Months}
               </p>
             </div>
 
             <div className="mt-4">
-              <p className="text-sm">
-                Outstanding debt
-              </p>
+              <p className="text-sm">Outstanding debt</p>
               <p className="text-xl font-bold text-gray-800">
                 ₹{futureSimulation.optimizedPath.debtAfter3Months}
               </p>
@@ -100,12 +94,22 @@ export default function FuturePage() {
         {/* FINAL MESSAGE */}
         <div className="mt-12 bg-indigo-50 border border-indigo-100 rounded-2xl p-6">
           <p className="text-indigo-700 font-medium">
-            Same income. Same person.  
+            Same income. Same person.
             <br />
             <span className="font-bold">
               The difference is intentional decisions.
             </span>
           </p>
+        </div>
+
+        {/* CTA → ACTION PLAN */}
+        <div className="mt-12 flex justify-end">
+          <button
+            onClick={() => navigate("/action-plan")}
+            className="bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:scale-[1.02] transition"
+          >
+            View My Action Plan →
+          </button>
         </div>
       </div>
     </div>
