@@ -22,7 +22,8 @@ export default function BudgetPage() {
   const { expenses } = inputData;
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 px-6 py-8 transition-colors">
+
       <div className="max-w-5xl mx-auto">
         {/* HEADER */}
         <h1 className="text-3xl font-extrabold text-primary mb-2">

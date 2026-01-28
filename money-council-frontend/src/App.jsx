@@ -1,9 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FinanceProvider } from "./context/FinanceContext";
-import ActionPlanPage from "./pages/ActionPlanPage";
-import DashboardPage from "./pages/DashboardPage";
-import TopNav from "./components/TopNav";
-
+import Layout from "./components/Layout";
 
 import InputPage from "./pages/InputPage";
 import PersonaPage from "./pages/PersonaPage";
@@ -11,21 +8,22 @@ import BudgetPage from "./pages/BudgetPage";
 import StabilityPage from "./pages/StabilityPage";
 import InvestmentPage from "./pages/InvestmentPage";
 import FuturePage from "./pages/FuturePage";
+import ActionPlanPage from "./pages/ActionPlanPage";
+import DashboardPage from "./pages/DashboardPage";
 
 function App() {
   return (
     <FinanceProvider>
       <BrowserRouter>
-        <TopNav />
         <Routes>
-          <Route path="/" element={<InputPage />} />
-          <Route path="/persona" element={<PersonaPage />} />
-          <Route path="/budget" element={<BudgetPage />} />
-          <Route path="/stability" element={<StabilityPage />} />
-          <Route path="/investment" element={<InvestmentPage />} />
-          <Route path="/future" element={<FuturePage />} />
-          <Route path="/action-plan" element={<ActionPlanPage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/" element={<Layout><InputPage /></Layout>} />
+          <Route path="/persona" element={<Layout><PersonaPage /></Layout>} />
+          <Route path="/budget" element={<Layout><BudgetPage /></Layout>} />
+          <Route path="/stability" element={<Layout><StabilityPage /></Layout>} />
+          <Route path="/investment" element={<Layout><InvestmentPage /></Layout>} />
+          <Route path="/future" element={<Layout><FuturePage /></Layout>} />
+          <Route path="/action-plan" element={<Layout><ActionPlanPage /></Layout>} />
+          <Route path="/dashboard" element={<Layout><DashboardPage /></Layout>} />
         </Routes>
       </BrowserRouter>
     </FinanceProvider>
